@@ -27,8 +27,7 @@ const baseMedia = [{
         name: 'Первая история декстера',
         episodeNumber: '1'
     }]
-}, 
-];
+}, ];
 
 let mediaNames = myMap(baseMedia, (media) => {
     return media.name
