@@ -13,4 +13,10 @@ var bind = function(func, context) {
 };
 
 var bindedSum = bind(sum, { sum: 20 }, 30, 40);
+var funcArgs = [].slice.call(arguments);
+};
+};
+
+var bindedSum = bind(sum, { sum: 20 }, 30, 40);
+
 console.log(bindedSum(50, 60, 70)); // 270
