@@ -3,6 +3,9 @@ var sum = function() {
     return [].reduce.call(arguments, function(result, current) {
         return result + current;
     }, this.sum);
+    return [].reduce.call(arguments, function(result, current) {
+        return result + current;
+    }, this.sum);
 };
 var bind = function(func, context) {
     var bindArgs = [].slice.call(arguments, 2);
