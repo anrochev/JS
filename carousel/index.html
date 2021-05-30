@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Карусель</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="title">Наши объекты</div>
+            <div class="description">На данной странице вы можете
+                ознакомиться со всеми объектами
+                недвижимости нашей компании</div>
+            <div id="sidebar" class="sidebar">
+                <div id="sidebar__navigator" class="sidebar__navigator">
+                    <img class="sidebar__navigator-i" src="img/nav_line.png">
+                    <div id="sidebar__navigator_current" class="sidebar__navigator_current">
+                        <img class="sidebar__navigator_current-i" src="img/nav_current.png">
+                    </div>
+                </div>
+                <div id="sidebar__left-button" class="sidebar__left-button">
+                    <img class="sidebar__left-button-i" src="img/slider_arrow_prev.png">
+                </div>
+                <div id="sidebar__right-button" class="sidebar__right-button">
+                    <img id=slider_arrow_next class="sidebar__right-button-i" src="img/slider_arrow_next.png" onclick=""
+                        type="button">
+                </div>
+            </div>
+        </div>
+        <div id="houses" class="houses">
+            <div class="house">
+                <img class="house-i" src="img/1.png" alt="1">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                        с замечательной террасой
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__name">Барселона IX
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/2.png" alt="2">
+                <div class="house__description">
+                    <div class="house__title">5-ти комнатный дизайнерский дом
+                        с террасой
+                    </div>
+                    <div class="house__price">32357500 руб.
+                    </div>
+                    <div class="house__location">Мадрид II
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/3.png" alt="3">
+                <div class="house__description">
+                    <div class="house__title">Великолепный дуплекс в частном особняке
+                    </div>
+                    <div class="house__price">25866000 руб.
+                    </div>
+                    <div class="house__location">Барселона IV
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/4.png" alt="4">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__location">Барселона
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/5.png" alt="5">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__location">Барселона
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/6.png" alt="6">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__location">Барселона
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/7.png" alt="7">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__location">Барселона
+                    </div>
+                </div>
+            </div>
+            <div class="house">
+                <img class="house-i" src="img/8.png" alt="8">
+                <div class="house__description">
+                    <div class="house__title">Большой 4-х комнатный дом
+                    </div>
+                    <div class="house__price">29584000 руб.
+                    </div>
+                    <div class="house__location">Барселона
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <script>
+        /* нумерация картинок */
+        let i = 1;
+        for (let li of houses.querySelectorAll('.house')) {
+            li.style.position = 'relative';
+            li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+            i++;
+        }
+
+        /* конфигурация */
+        let width = 352; // ширина картинки
+        let count = 3; // видимое количество изображений
+        let widthNavigator = 928; // ширина полосы указателя позиции
+        let widthNavigatorCurrent = 310; // ширина текущего указателя позиции 
+
+        let list = document.getElementById("houses");
+        let listElems = houses.querySelectorAll('.house');
+        let posCurrent = document.getElementById("sidebar__navigator_current");
+        let posNavigator = document.getElementById("sidebar__navigator");
+
+        let position = 0; // положение ленты прокрутки
+        let positionCur = 0; // положение индикатора прокрутки
+
+        rightButton = sidebar.querySelector('.sidebar__right-button');
+        rightButton.onclick = handleRightClick;
+        function handleRightClick() {
+            position -= width * count;
+            positionCur += widthNavigatorCurrent;
+            position = Math.max(position, -width * (listElems.length - count));
+            positionCur = Math.min(positionCur, widthNavigator - widthNavigatorCurrent);
+            list.style.marginLeft = position + 'px';
+            posCurrent.style.marginLeft = positionCur + 'px';
+        }
+   
+        leftButton = sidebar.querySelector('.sidebar__left-button');
+        leftButton.onclick = handleLeftClick;
+        function handleLeftClick() {
+            console.log("Нажата левая кнопка");
+            position += width * count;
+            positionCur -= widthNavigatorCurrent;
+            position = Math.min(position, -30);
+            positionCur = Math.max(positionCur, 0);
+            list.style.marginLeft = position + 'px';
+            posCurrent.style.marginLeft = positionCur + 'px';
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+body{
+    margin: 0;
+    background: #E5E5E5;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.page{
+    background: #E5E5E5;
+    height: 100%;
+    padding: 220px 150px 0px 380px;  
+}
+.header{
+}
+.title{
+    font-size: 56px;
+    font-weight: bold;  
+}
+.description{
+    font-size: 22px;      
+}
+.sidebar{  
+    display: flex;
+    flex-direction: row;
+}
+.sidebar__navigator{  
+    position: relative; 
+    top: 50%;
+    left: 0px;
+    right: 192px;
+    margin-top: 1.6%;
+}
+.sidebar__navigator-i{  
+    height: 2px; 
+    width: 928px;
+}
+
+.sidebar__navigator_current{  
+    position: absolute;
+    top: 0%;   
+    left: 0%;
+    right: 72.32%;
+    margin-left: 0px;      
+}
+.sidebar__navigator_current-i{  
+    height: 2px;
+     width: 310px;     
+}
+
+.sidebar__left-button{ 
+     margin-left: 20px; 
+}
+.sidebar__left-button-i{ 
+      height: 64px; 
+      width: 64px;
+}
+.sidebar__right-button{  
+    margin-left: 20px;    
+}
+.sidebar__right-button-i{  
+    height: 64px; 
+    width: 64px;
+}
+.houses{
+    display: flex;
+    flex-wrap: nowrap;
+    position: absolute;
+    margin-left: -30px;  
+    /* margin-top: 20px; */
+}
+.house{
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin-right: 16px;
+    margin-top: 16px;
+    box-shadow: 0px 2px 8px rgba(28, 64, 136, 0.1), 0px 4px 20px rgba(28, 64, 136, 0.1);
+}
+.house-i{
+    height: 256px; 
+    width: 352px;
+}
+.house__description{
+    padding: 12px 8px 8px; 
+    margin-left: 16px;
+}
+.house__title{
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+ }
+.house__price{
+    font-size: 17px;
+    font-weight: bold;
+    color: #1C4088;
+}
+.house__name{
+    font-size: 17px;
+}
