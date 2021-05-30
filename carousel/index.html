@@ -16,23 +16,23 @@
                 недвижимости нашей компании</div>
             <div id="sidebar" class="sidebar">
                 <div id="sidebar__navigator" class="sidebar__navigator">
-                    <img height="2px" width="928px" src="img/nav_line.png">
+                    <img class="sidebar__navigator-i" src="img/nav_line.png">
                     <div id="sidebar__navigator_current" class="sidebar__navigator_current">
-                        <img height="2px" width="310px" src="img/nav_current.png">
+                        <img class="sidebar__navigator_current-i" src="img/nav_current.png">
                     </div>
                 </div>
                 <div id="sidebar__left-button" class="sidebar__left-button">
-                    <img height="64px" width="64px" src="img/slider_arrow_prev.png">
+                    <img class="sidebar__left-button-i" src="img/slider_arrow_prev.png">
                 </div>
                 <div id="sidebar__right-button" class="sidebar__right-button">
-                    <img id=slider_arrow_next height="64px" width="64px" src="img/slider_arrow_next.png" onclick=""
+                    <img id=slider_arrow_next class="sidebar__right-button-i" src="img/slider_arrow_next.png" onclick=""
                         type="button">
                 </div>
             </div>
         </div>
         <div id="houses" class="houses">
             <div class="house">
-                <img height="256px" width="352px" src="img/1.png" alt="1">
+                <img class="house-i" src="img/1.png" alt="1">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                         с замечательной террасой
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/2.png" alt="2">
+                <img class="house-i" src="img/2.png" alt="2">
                 <div class="house__description">
                     <div class="house__title">5-ти комнатный дизайнерский дом
                         с террасой
@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/3.png" alt="3">
+                <img class="house-i" src="img/3.png" alt="3">
                 <div class="house__description">
                     <div class="house__title">Великолепный дуплекс в частном особняке
                     </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/4.png" alt="4">
+                <img class="house-i" src="img/4.png" alt="4">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                     </div>
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/5.png" alt="5">
+                <img class="house-i" src="img/5.png" alt="5">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                     </div>
@@ -89,7 +89,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/6.png" alt="6">
+                <img class="house-i" src="img/6.png" alt="6">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                     </div>
@@ -100,7 +100,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/7.png" alt="7">
+                <img class="house-i" src="img/7.png" alt="7">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                     </div>
@@ -111,7 +111,7 @@
                 </div>
             </div>
             <div class="house">
-                <img height="256px" width="352px" src="img/8.png" alt="8">
+                <img class="house-i" src="img/8.png" alt="8">
                 <div class="house__description">
                     <div class="house__title">Большой 4-х комнатный дом
                     </div>
@@ -144,27 +144,35 @@
 
         let list = document.getElementById("houses");
         let listElems = houses.querySelectorAll('.house');
-        let pos_current = document.getElementById("sidebar__navigator_current");
-        let pos_navigator = document.getElementById("sidebar__navigator");
+        let posCurrent = document.getElementById("sidebar__navigator_current");
+        let posNavigator = document.getElementById("sidebar__navigator");
 
         let position = 0; // положение ленты прокрутки
-        let position_cur = 0; // положение индикатора прокрутки
-        sidebar.querySelector('.sidebar__right-button').onclick = function () {
+        let positionCur = 0; // положение индикатора прокрутки
+
+        rightButton = sidebar.querySelector('.sidebar__right-button');
+        rightButton.onclick = handleRightClick;
+        function handleRightClick() {
             position -= width * count;
-            position_cur += widthNavigatorCurrent;
+            positionCur += widthNavigatorCurrent;
             position = Math.max(position, -width * (listElems.length - count));
-            position_cur = Math.min(position_cur, widthNavigator - widthNavigatorCurrent);
+            positionCur = Math.min(positionCur, widthNavigator - widthNavigatorCurrent);
             list.style.marginLeft = position + 'px';
-            pos_current.style.marginLeft = position_cur + 'px';
+            posCurrent.style.marginLeft = positionCur + 'px';
         }
-        sidebar.querySelector('.sidebar__left-button').onclick = function () {
+   
+        leftButton = sidebar.querySelector('.sidebar__left-button');
+        leftButton.onclick = handleLeftClick;
+        function handleLeftClick() {
+            console.log("Нажата левая кнопка");
             position += width * count;
-            position_cur -= widthNavigatorCurrent;
+            positionCur -= widthNavigatorCurrent;
             position = Math.min(position, -30);
-            position_cur = Math.max(position_cur, 0);
+            positionCur = Math.max(positionCur, 0);
             list.style.marginLeft = position + 'px';
-            pos_current.style.marginLeft = position_cur + 'px';
+            posCurrent.style.marginLeft = positionCur + 'px';
         }
+
     </script>
 </body>
 

@@ -7,7 +7,7 @@ body{
 .page{
     background: #E5E5E5;
     height: 100%;
-    padding: 12% 20% 0% 20%;
+    padding: 220px 150px 0px 380px;  
 }
 .header{
 }
@@ -29,6 +29,10 @@ body{
     right: 192px;
     margin-top: 1.6%;
 }
+.sidebar__navigator-i{  
+    height: 2px; 
+    width: 928px;
+}
 
 .sidebar__navigator_current{  
     position: absolute;
@@ -37,13 +41,24 @@ body{
     right: 72.32%;
     margin-left: 0px;      
 }
+.sidebar__navigator_current-i{  
+    height: 2px;
+     width: 310px;     
+}
+
 .sidebar__left-button{ 
      margin-left: 20px; 
-
+}
+.sidebar__left-button-i{ 
+      height: 64px; 
+      width: 64px;
 }
 .sidebar__right-button{  
-    margin-left: 20px;  
-  
+    margin-left: 20px;    
+}
+.sidebar__right-button-i{  
+    height: 64px; 
+    width: 64px;
 }
 .houses{
     display: flex;
@@ -59,6 +74,10 @@ body{
     margin-right: 16px;
     margin-top: 16px;
     box-shadow: 0px 2px 8px rgba(28, 64, 136, 0.1), 0px 4px 20px rgba(28, 64, 136, 0.1);
+}
+.house-i{
+    height: 256px; 
+    width: 352px;
 }
 .house__description{
     padding: 12px 8px 8px; 
